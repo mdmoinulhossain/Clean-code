@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      CodeGlow — Beautifier
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div class="logo-dot">
+        </div>
+        CodeGlow
+      </div>
+      <div class="tagline">
+        HTML · CSS · JS Beautifier
+      </div>
+    </header>
+    <div class="main">
+      <div class="controls-bar">
+        <div class="tabs">
+          <button class="tab active" data-lang="html">
+            HTML
+          </button>
+          <button class="tab" data-lang="css">
+            CSS
+          </button>
+          <button class="tab" data-lang="js">
+            JS
+          </button>
+        </div>
+        <button class="btn btn-primary" id="beautifyBtn">
+          ✦ Beautify
+        </button>
+        <button class="btn btn-ghost" id="clearBtn">
+          Clear
+        </button>
+        <div style="margin-left: auto; display: flex; gap: 10px;">
+          <button class="btn btn-ghost" id="swapBtn">
+            ⇅ Swap
+          </button>
+        </div>
+      </div>
+      <div class="options-row">
+        <div class="option-group">
+          <label>
+            Indent
+          </label>
+          <select id="indentSize">
+            <option value="2" selected>
+              2 Spaces
+            </option>
+            <option value="4">
+              4 Spaces
+            </option>
+            <option value="tab">
+              Tab
+            </option>
+          </select>
+        </div>
+        <label class="checkbox-group">
+          <input type="checkbox" id="wrapLines" checked>
+          Wrap Lines
+        </label>
+        <label class="checkbox-group">
+          <input type="checkbox" id="preserveNewlines" checked>
+          Preserve Newlines
+        </label>
+        <label class="checkbox-group">
+          <input type="checkbox" id="jsSemicolons" checked>
+          JS Semicolons
+        </label>
+      </div>
+      <div class="editor-grid">
+        <!-- Input -->
+        <div class="panel">
+          <div class="panel-header">
+            <span>
+              <span class="panel-label-dot dot-html" id="inputDot">
+              </span>
+              <span id="inputLabel">
+                HTML
+              </span>
+              · Input
+            </span>
+            <button class="btn btn-ghost" id="pasteBtn" style="padding:4px 12px;font-size:0.65rem;">
+              Paste
+            </button>
+          </div>
+          <textarea id="inputCode" placeholder="Paste your messy code here...&#10;&#10;<!-- HTML, CSS, or JavaScript -->
+            &#10;
+            <!-- Select the language above and hit Beautify -->
+            ">
+          </textarea>
+          <div class="status-bar">
+            <span class="status-badge badge-idle" id="inputBadge">
+              Idle
+            </span>
+            <span class="line-count" id="inputLines">
+              0 lines
+            </span>
+            <span class="line-count" id="inputChars">
+              0 chars
+            </span>
+          </div>
+        </div>
+        <!-- Output -->
+        <div class="panel output-panel" id="outputPanel">
+          <div class="panel-header">
+            <span>
+              <span class="panel-label-dot dot-html" id="outputDot">
+              </span>
+              <span id="outputLabel">
+                HTML
+              </span>
+              · Output
+            </span>
+            <button class="btn btn-copy" id="copyBtn">
+              Copy
+            </button>
+          </div>
+          <textarea id="outputCode" readonly placeholder="Beautified code will appear here...">
+          </textarea>
+          <div class="status-bar">
+            <span class="status-badge badge-idle" id="outputBadge">
+              Ready
+            </span>
+            <span class="line-count" id="outputLines">
+              0 lines
+            </span>
+            <span class="line-count" id="savedChars">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
